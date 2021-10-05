@@ -6,7 +6,7 @@ const Hot = () =>{
     const {setHot}=useContext(DataContext);
     useEffect(
         ()=>{
-         fetch("https://react-rest-spring.herokuapp.com/getPack")
+         fetch("https://react-rest-spring.herokuapp.com/getPackRefresh")
         .then(response => response.json())
         .then(data => setHot(data))
         .catch((err)=>console.log(err));
