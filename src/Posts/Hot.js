@@ -3,9 +3,9 @@ import { DataContext } from "../datacontext";
 import HotPost from "./HotPost";
 
 const Hot = () =>{
-    const {hotData} =useContext(DataContext);
+
     const {setHot}=useContext(DataContext);
-    const [val,setVal]=useState("");
+    
  
 
     useEffect(
@@ -15,9 +15,9 @@ const Hot = () =>{
         .then(data => setHot(data))
         .catch((err)=>console.log(err));
          
-          if(val==""){if(hotData!=undefined){setVal(hotData)}}
+        
         }
-    ,[setHot,setVal])
+    ,[setHot])
 
     
  
