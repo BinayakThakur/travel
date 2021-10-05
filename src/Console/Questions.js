@@ -7,7 +7,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import Fav from './Fav';
 import Post from './Post';
 import { DataContext } from '../datacontext';
-import Answer from './Answer';
+
 
 export default function LabTabs() {
   const [value, setValue] = React.useState('1');
@@ -29,7 +29,7 @@ export default function LabTabs() {
         </Box>
         <TabPanel value="1"><Post/></TabPanel>
         <TabPanel value="2"><Fav></Fav></TabPanel>
-        <TabPanel value="3"><Answer></Answer></TabPanel>
+        <TabPanel value="3"><Fav></Fav></TabPanel>
       </TabContext>
     </Box>
   );
