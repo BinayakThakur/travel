@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { DataContext } from "../datacontext";
+import HotPost from "./HotPost";
 
 const Hot = () =>{
     const {hotData} =useContext(DataContext);
@@ -16,7 +17,7 @@ const Hot = () =>{
         console.log(hotData);
 return (<>
 
-    
+    <HotPost></HotPost>
 
     </>)
 }

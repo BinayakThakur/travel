@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react";
 import { DataContext } from "../datacontext";
+import FreshPost from "./FreshPost";
 
 
 const Fresh = () =>{
@@ -18,7 +19,7 @@ const Fresh = () =>{
         console.log(freshData);
     return (<>
  
-    
+    <FreshPost></FreshPost>
     </>)
 }
 export default Fresh;
