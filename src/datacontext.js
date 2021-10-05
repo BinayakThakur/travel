@@ -10,7 +10,7 @@ export const DataProvider = props =>{
     const[myChanges,setChanges]=useState([]);
     const[row,setRows]=useState([]);
     const[list,setList]=useState(0);
-    const[isLogged,setLogged]=useState(true);
+    const[isLogged,setLogged]=useState(false);
     const[ID,setID]=useState("XXXX");
     const[MyImages,setImages]=useState(images);
     const[heading,setHeading]=useState("");
