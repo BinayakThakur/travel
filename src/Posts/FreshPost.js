@@ -1,30 +1,63 @@
-import { Divider, Paper } from "@mui/material";
-import { useContext, useEffect } from "react";
+import { Divider, Paper, Toolbar, Typography } from "@mui/material";
+import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../datacontext";
-
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import AddCommentIcon from '@mui/icons-material/AddComment';
+import { Grid } from "@mui/material"
 const FreshPost = ()=>{
-    const{freshData}=useContext(DataContext);
-    const [val,setVal]=useState(undefined);  
+    const {freshData}=useContext(DataContext);  
+    const [val,setVal]=useState(undefined);
+    var rows=[]
     useEffect(
-        ()=>{if(val==undefined){if(freshData!=undefined){setVal(
 
-            freshData.map((post)=>{
-                <Paper>
-                    <Divider/>
-                    {post.place}
-                    <Divider/>
-                    {post.comments}
-        
-                </Paper>
-        
-            })
+        ()=>{
+            if(val==undefined){
+                if(freshData!=undefined){
+                    console.log(freshData);
+                    freshData.map(
+                        (e)=>{
+                            rows.push(
+                                <div>
+                                <Paper style={{background:"whitesmoke"}} className="mt-4" elevation={7}>
+                                    <Toolbar><Typography variant="h6">{e.place}</Typography></Toolbar>
+                                    <Divider/>
+                                    <Typography variant="overline">{e.comments}</Typography>   
+                                    <Divider/>
+                                    <Grid 
+                                  container
+                                  direction="row"
+                                  justifyContent="flex-end"
+                                  alignItems="center"
+
+                                
+                                >
+                                    <Grid item>
+                                        <Toolbar>
+                                <ThumbUpIcon  /><ThumbDownIcon className="ms-2" /><AddCommentIcon  className="ms-4"></AddCommentIcon>
+                                </Toolbar>
+                                    </Grid>
+                                </Grid>
+                                </Paper>
+                                <Divider/>
+                            
+                                </div>
+                                
+
+                            )
+                        }
+                    );
+                    setVal(rows);   
+                }
+            }
+        }
+
+    );
 
 
-        )}}}
-    )
     return(<>
         {val}
-    
+        
     </>)
 }
 export default FreshPost;

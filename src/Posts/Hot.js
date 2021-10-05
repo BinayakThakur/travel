@@ -24,7 +24,7 @@ const Hot = () =>{
        
 return (<>
 
-    {val}
+    <HotPost></HotPost>
 
     </>)
 }
