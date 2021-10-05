@@ -19,8 +19,8 @@ const Fresh = () =>{
     
       
     return (<>
- 
-    {val}
+    <FreshPost></FreshPost>
+
     </>)
 }
 export default Fresh;

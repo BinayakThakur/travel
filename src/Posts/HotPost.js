@@ -8,12 +8,8 @@ const HotPost = ()=>{
     useEffect(
         ()=>{
             if(val==undefined){
-                if(val==""){if(hotData!=undefined){setVal(hotData)}}
-            }
-        },[setVal]
-    )
-    return(<>
-    {hotData.map((post)=>{
+                if(val==""){if(hotData!=undefined){setVal(
+                    hotData.map((post)=>{
         <Paper>
             <Divider/>
             {post.place}
@@ -22,7 +18,12 @@ const HotPost = ()=>{
 
         </Paper>
 
-    })}
+    }))}}
+            }
+        },[setVal]
+    )
+    return(<>
+        {val}
     
     </>)
 }
