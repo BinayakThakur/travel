@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../datacontext";
 import HotPost from "./HotPost";
 
@@ -14,10 +14,14 @@ const Hot = () =>{
          
         }
     ,[setHot])
-        console.log(hotData);
+
+    
+    const [val,setVal]=useState("");
+    if(hotData!=undefined){setVal(hotData)}
+       
 return (<>
 
-    <HotPost></HotPost>
+    {val}
 
     </>)
 }
