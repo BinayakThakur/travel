@@ -14,7 +14,7 @@ const Fresh = () =>{
         .then(data => setFresh(data))
         .catch((err)=>console.log(err))
 
-        if(freshData!=undefined){setVal(freshData)}   
+        if(val==""){if(freshData!=undefined){setVal(freshData)}}   
         }
     ,[setFresh,setVal])
     
