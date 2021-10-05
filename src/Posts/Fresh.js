@@ -17,7 +17,7 @@ const Fresh = () =>{
         
     ,[setFresh])
     
-      
+    
     return (<>
     <FreshPost></FreshPost>
 
