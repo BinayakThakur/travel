@@ -1,17 +1,32 @@
 import { Button, TextField, Toolbar } from "@mui/material";
+import { useContext, useState } from "react";
+import { DataContext } from "../datacontext";
 import MyPost from "./MyPost";
 
 const Send = () =>{
+    const [Heading,setHeading]=useState("");
+    const [Body,setBody]=useState("");
+    const {time}=useContext(DataContext);
+    function heading(e){
+        setHeading(e);
+    }
+    function body(e){
+        setBody(e);
+    }
+    function send(){
+        fetch("https://react-rest-spring.herokuapp.com/post?place="+Heading+"&author=userID&comments="+Body+"&time="+time)
+        .catch((err)=>console.log(err))
+    }
     return (<>
     
         <Toolbar>
-            <TextField fullWidth label="Enter heading" variant="standard"></TextField>
+            <TextField fullWidth label="Enter heading" variant="standard" onChange={(evt)=>{heading(evt.target.value)}}></TextField>
         </Toolbar>
         <Toolbar>
-            <TextField fullWidth label="Enter post" className="mt-3" multiline variant="standard"></TextField>
+            <TextField fullWidth label="Enter post" className="mt-3" multiline variant="standard" onChange={(evt)=>{heading(evt.target.value)}}></TextField>
         </Toolbar>
         <Toolbar className="mt-4 mb-4">
-            <Button variant="outlined">send</Button>  <Button variant="outlined" className="ms-3">save</Button>
+            <Button variant="outlined" onClick={send}>send</Button >  <Button variant="outlined" className="ms-3" >save</Button>
         </Toolbar>
         <MyPost></MyPost>
     </>)
