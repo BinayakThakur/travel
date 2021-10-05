@@ -5,6 +5,22 @@ import { createContext, useState } from "react";
 export const DataContext = createContext();
 
 export const DataProvider = props =>{
+
+
+    const[hotData,setHot]=useState(undefined);
+
+
+
+
+
+
+
+
+
+
+
+
+
     const[time,setTime]=useState(new Date().toLocaleString());
     const[finChanges,setFinal]=useState(undefined);
     const[myChanges,setChanges]=useState([]);
@@ -16,7 +32,10 @@ export const DataProvider = props =>{
     const[heading,setHeading]=useState("");
     const[revChange,setRev]=useState(undefined);
     return (
-        <DataContext.Provider value={{ID,setID,isLogged,setLogged,list,setList,row,setRows,myChanges,setChanges,setFinal,finChanges,revChange,setRev,heading,setHeading}}>
+        <DataContext.Provider value={{
+            
+            hotData,setHot,
+            ID,setID,isLogged,setLogged,list,setList,row,setRows,myChanges,setChanges,setFinal,finChanges,revChange,setRev,heading,setHeading}}>
             {props.children}
         </DataContext.Provider>
     )
