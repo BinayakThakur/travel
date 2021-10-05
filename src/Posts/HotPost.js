@@ -1,4 +1,4 @@
-import { Divider, Paper, Toolbar, Typography } from "@mui/material";
+import { Button, Divider, Paper, Toolbar, Typography } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../datacontext";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
@@ -9,6 +9,14 @@ const HotPost = ()=>{
     const {hotData}=useContext(DataContext);  
     const [val,setVal]=useState(undefined);
     var rows=[]
+    function setLike(e){
+        fetch("https://react-rest-spring.herokuapp.com/like?postID="+e)
+        .catch((err)=>console.log(err))
+    }
+    function setDis(e){
+        fetch("https://react-rest-spring.herokuapp.com/dislike?postID="+e)
+        .catch((err)=>console.log(err))
+    }
     useEffect(
 
         ()=>{
@@ -32,9 +40,11 @@ const HotPost = ()=>{
 
                                 
                                 >
-                                    <Grid item>
-                                        <Toolbar>
-                                <ThumbUpIcon  /><ThumbDownIcon className="ms-2" /><AddCommentIcon  className="ms-4"></AddCommentIcon>
+                                <Grid item>
+                                <Toolbar>
+                                <Button onClick={()=>{setLike(e.postID)}}><ThumbUpIcon/></Button>
+                                <Button onClick={()=>{setDis(e.postID)}} ><ThumbDownIcon/></Button>
+                                <Button ><AddCommentIcon/></Button>
                                 </Toolbar>
                                     </Grid>
                                 </Grid>
