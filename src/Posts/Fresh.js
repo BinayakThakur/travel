@@ -4,7 +4,7 @@ import FreshPost from "./FreshPost";
 
 
 const Fresh = () =>{
-       
+    const [val,setVal]=useState("");  
     const {freshData} =useContext(DataContext);
     const {setFresh}=useContext(DataContext);
     useEffect(
@@ -13,13 +13,12 @@ const Fresh = () =>{
         .then(response => response.json())
         .then(data => setFresh(data))
         .catch((err)=>console.log(err))
-         
+
+        if(freshData!=undefined){setVal(freshData)}   
         }
-    ,[setFresh])
+    ,[setFresh,setVal])
     
       
-    const [val,setVal]=useState("");
-    if(freshData!=undefined){setVal(freshData)}   
     return (<>
  
     {val}

@@ -5,6 +5,9 @@ import HotPost from "./HotPost";
 const Hot = () =>{
     const {hotData} =useContext(DataContext);
     const {setHot}=useContext(DataContext);
+    const [val,setVal]=useState("");
+ 
+    
     useEffect(
         ()=>{
          fetch("https://react-rest-spring.herokuapp.com/getPackRefresh")
@@ -12,12 +15,12 @@ const Hot = () =>{
         .then(data => setHot(data))
         .catch((err)=>console.log(err));
          
+        if(hotData!=undefined){setVal(hotData)}
         }
-    ,[setHot])
+    ,[setHot,setVal])
 
     
-    const [val,setVal]=useState("");
-    if(hotData!=undefined){setVal(hotData)}
+ 
        
 return (<>
 
