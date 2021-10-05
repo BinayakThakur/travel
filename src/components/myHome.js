@@ -1,9 +1,8 @@
 import { Container, Divider, Paper, Typography } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../datacontext";
-
 import Search from "./SearchBar";
-import Things from "./Things";
+
 
 const MyHome =()=>{
     const [mydata,setData] = useState(<Typography variant="subtitle1" color="InfoText">Dynomix</Typography>)

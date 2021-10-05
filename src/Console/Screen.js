@@ -1,4 +1,12 @@
+import LabTabs from "./TabPanel";
+
+
 const Screen = ()=>{
-    return ("Logged in")
+    return (<>
+    
+        Site Settings
+    
+    
+    </>)
 }
 export default Screen;
