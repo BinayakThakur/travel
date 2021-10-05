@@ -6,7 +6,7 @@ import ButtonAppBar from './components/Bar';
 import Login from './Login/Login'
 
 import { DataProvider } from './datacontext';
-
+import { SnackbarProvider } from 'notistack';
 import Forgot from './Login/Forgot';
 import Sign from './Login/Sign';
 import MyHome from './components/myHome';
@@ -32,8 +32,9 @@ function App() {
    
     <div className="App">
     <DataProvider>
+    
     <ThemeProvider  theme={darkTheme}>  
-      
+    <SnackbarProvider>
         <Routers>
         <ButtonAppBar/>
         <Route path="/home" component={MyHome}></Route>
@@ -42,8 +43,9 @@ function App() {
         <Route path="/sign" component={Sign}></Route>
         <Route path="/console" component={Console}></Route>
         </Routers>
-      
+        </SnackbarProvider>
     </ThemeProvider>
+   
     </DataProvider>
     </div>
   );

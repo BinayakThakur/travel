@@ -1,20 +1,32 @@
-import { Button, Divider, Paper, Toolbar, Typography } from "@mui/material";
+import { Button, Divider, Paper, Snackbar, Toolbar, Typography } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../datacontext";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import AddCommentIcon from '@mui/icons-material/AddComment';
 import { Grid } from "@mui/material"
+import { useSnackbar } from 'notistack';
+
 const FreshPost = ()=>{
+    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
     const {freshData}=useContext(DataContext);  
     const [val,setVal]=useState(undefined);
     var rows=[]
     function setLike(e){
         fetch("https://react-rest-spring.herokuapp.com/like?postID="+e)
+        .then( enqueueSnackbar('Liked',{
+            variant:"success",
+            autoHideDuration: 1500,
+        }))
         .catch((err)=>console.log(err))
+       
     }
     function setDis(e){
         fetch("https://react-rest-spring.herokuapp.com/dislike?postID="+e)
+        .then( enqueueSnackbar('Disliked',{
+            variant:"error",
+            autoHideDuration: 1500,
+        }))
         .catch((err)=>console.log(err))
     }
     useEffect(
