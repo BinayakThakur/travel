@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../datacontext";
 import FreshPost from "./FreshPost";
 
@@ -16,10 +16,13 @@ const Fresh = () =>{
          
         }
     ,[setFresh])
-        console.log(freshData);
+    
+      
+    const [val,setVal]=useState("");
+    if(freshData!=undefined){setVal(freshData)}   
     return (<>
  
-    <FreshPost></FreshPost>
+    {val}
     </>)
 }
 export default Fresh;
