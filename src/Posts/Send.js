@@ -13,7 +13,7 @@ const Send = () =>{
         setBody(e);
     }
     function send(){
-        fetch("https://react-rest-spring.herokuapp.com/post?place=asdsa&author=sakdas&comments=awdmamwpdm&time=xasxas")
+        fetch("https://react-rest-spring.herokuapp.com/post?place="+Heading+"&author="+"User21312"+"&comments="+Body+"&time="+(new Date().toLocaleString()))
         .catch((err)=>console.log(err));
     }
     return (<>
