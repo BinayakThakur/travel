@@ -2,9 +2,6 @@ import { Button, Container, Divider, Grid, Paper, TextField, Toolbar, Typography
 import { Formik } from "formik";
 import Autocomplete from '@mui/material/Autocomplete';
 
-
-import ButtonBases from "../components/Cards";
-import ComboBox from "./Secret";
 import {Link} from 'react-router-dom';
 import Things from "../components/Things";
 const top100Films = [
@@ -72,7 +69,7 @@ const Forgot =()=>{
         
         </Formik>
         </Paper>
-        <ButtonBases></ButtonBases>
+     
         </Container>
          </>
 

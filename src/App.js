@@ -3,13 +3,13 @@ import './App.css';
 import { BrowserRouter as Routers, Route } from "react-router-dom";
 
 import ButtonAppBar from './components/Bar';
-import myHome from './components/myHome';
 import Login from './Login/Login'
-import DataCheck from './components/dataCheck';
+
 import { DataProvider } from './datacontext';
-import Destination from './components/Destination';
+
 import Forgot from './Login/Forgot';
 import Sign from './Login/Sign';
+import MyHome from './components/myHome';
 import Console from './Console/console';
 
 const darkTheme = createTheme({
@@ -36,10 +36,8 @@ function App() {
       
         <Routers>
         <ButtonAppBar/>
-      
-        <Route path="/home" component={myHome}/>
-        <Route path="/login" component={Login}/>
-        <Route path="/destination" component={Destination}/>
+        <Route path="/home" component={MyHome}></Route>
+        <Route path="/login" component={Login}></Route>
         <Route path="/forgot" component={Forgot}></Route>
         <Route path="/sign" component={Sign}></Route>
         <Route path="/console" component={Console}></Route>

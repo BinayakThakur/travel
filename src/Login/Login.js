@@ -1,8 +1,7 @@
 import { Button, Container, Divider, Grid, Paper, TextField, Toolbar, Typography } from "@mui/material";
 import { Formik } from "formik";
 import { useContext, useEffect, useState } from "react";
-import ButtonBases from "../components/Cards";
-import ComboBox from "./Secret";
+
 import {Link,useHistory} from 'react-router-dom';
 import Things from "../components/Things";
 import Console from "../Console/console";
@@ -23,7 +22,7 @@ const Login =()=>{
       
         }
     const signSubmit = async(e)=>{
-     axios.get("http://localhost:8080/get?user="+e.user+"&password="+e.password).then((response)=>{
+      axios.get("http://localhost:8080/get?user="+e.user+"&password="+e.password).then((response)=>{
          if(response.data.cutefish==true){
             setLogged(true);
             Login();
@@ -78,7 +77,7 @@ const Login =()=>{
         <Divider style={{width:"0%"}} className="mb-5"/>
       
         </Paper>
-        <ButtonBases></ButtonBases>  
+     
         
     </Container>)
 }
