@@ -1,7 +1,23 @@
+import { useContext, useEffect } from "react";
+import { DataContext } from "../datacontext";
+
+
 const Fresh = () =>{
+       
+    const {freshData} =useContext(DataContext);
+    const {setFresh}=useContext(DataContext);
+    useEffect(
+        ()=>{
+         fetch("https://react-rest-spring.herokuapp.com/getPackRefresh")
+        .then(response => response.json())
+        .then(data => setFresh(data))
+        .catch((err)=>console.log(err))
+         
+        }
+    ,[setFresh])
+        console.log(freshData);
     return (<>
-    
-    Fresh
+ 
     
     </>)
 }

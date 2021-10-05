@@ -8,7 +8,7 @@ export const DataProvider = props =>{
 
 
     const[hotData,setHot]=useState(undefined);
-
+    const[freshData,setFresh]=useState(undefined);
 
 
 
@@ -34,7 +34,7 @@ export const DataProvider = props =>{
     return (
         <DataContext.Provider value={{
             
-            hotData,setHot,
+            hotData,setHot,freshData,setFresh,
             ID,setID,isLogged,setLogged,list,setList,row,setRows,myChanges,setChanges,setFinal,finChanges,revChange,setRev,heading,setHeading}}>
             {props.children}
         </DataContext.Provider>
