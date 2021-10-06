@@ -5,7 +5,7 @@ import { createContext, useState } from "react";
 export const DataContext = createContext();
 
 export const DataProvider = props =>{
-
+    
 
     const[hotData,setHot]=useState(undefined);
     const[freshData,setFresh]=useState(undefined);
@@ -15,7 +15,7 @@ export const DataProvider = props =>{
 
 
 
-
+   const[myComments,setComments]=useState("Select post to see the comments");
 
 
 
@@ -34,7 +34,7 @@ export const DataProvider = props =>{
     return (
         <DataContext.Provider value={{
             
-            hotData,setHot,freshData,setFresh,
+            hotData,setHot,freshData,setFresh,myComments,setComments,
             ID,setID,isLogged,setLogged,list,setList,row,setRows,myChanges,setChanges,setFinal,finChanges,revChange,setRev,heading,setHeading}}>
             {props.children}
         </DataContext.Provider>

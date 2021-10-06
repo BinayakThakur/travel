@@ -1,4 +1,4 @@
-import { Button, Divider, Paper, Snackbar, Toolbar, Typography } from "@mui/material";
+import { Button, Divider, Paper, Snackbar, TextField, Toolbar, Typography } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../datacontext";
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
@@ -6,12 +6,27 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import AddCommentIcon from '@mui/icons-material/AddComment';
 import { Grid } from "@mui/material"
 import { useSnackbar } from 'notistack';
-
+import { useHistory } from "react-router";
+import SendIcon from '@mui/icons-material/Send';
 const FreshPost = ()=>{
+
+    
+
+   
+    
+    const [postComment,setComment]=useState("Click to see comment");
+    const comment=(e)=>{
+        setComment(e);
+       
+    }
+
+
+
     const { enqueueSnackbar, closeSnackbar } = useSnackbar();
     const {freshData}=useContext(DataContext);  
     const [val,setVal]=useState(undefined);
     var rows=[]
+    
     function setLike(e){
         fetch("https://react-rest-spring.herokuapp.com/like?postID="+e)
         .then( enqueueSnackbar('Liked',{
@@ -40,9 +55,9 @@ const FreshPost = ()=>{
                             rows.push(
                                 <div>
                                 <Paper style={{background:"whitesmoke"}} className="mt-4" elevation={7}>
-                                    <Toolbar><Typography variant="h6">{e.place}</Typography></Toolbar>
+                                    <Toolbar><Typography variant="h5" style={{fontFamily:"Hind Siliguri"}}>{e.place}</Typography></Toolbar>
                                     <Divider/>
-                                    <Typography variant="overline">{e.comments}</Typography>   
+                                    <Typography style={{fontFamily:"Hind Siliguri"}} className="mt-4 mb-4">{e.comments}</Typography>   
                                     <Divider/>
                                     <Grid 
                                   container
@@ -51,16 +66,25 @@ const FreshPost = ()=>{
                                   alignItems="center"
 
                                 
-                                >
+                                >      
+                    
+                                
+                               
+                      
                                     <Grid item>
+                               
                                         <Toolbar>
+                                  
                                 <Button onClick={()=>{setLike(e.postID)}}><ThumbUpIcon/></Button>
                                 <Button onClick={()=>{setDis(e.postID)}}><ThumbDownIcon/></Button>
-                                <Button><AddCommentIcon/></Button>
+                              
+                                
                                 </Toolbar>
                                     </Grid>
                                 </Grid>
+                                
                                 </Paper>
+                             
                                 <Divider/>
                             
                                 </div>
@@ -79,7 +103,7 @@ const FreshPost = ()=>{
 
     return(<>
         {val}
-        
+      
     </>)
 }
 export default FreshPost;

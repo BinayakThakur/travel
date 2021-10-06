@@ -12,6 +12,7 @@ import Sign from './Login/Sign';
 import MyHome from './components/myHome';
 import Console from './Console/console';
 
+
 const darkTheme = createTheme({
   palette: {
     type: 'dark',
@@ -36,7 +37,7 @@ function App() {
     <ThemeProvider  theme={darkTheme}>  
     <SnackbarProvider>
         <Routers>
-        <ButtonAppBar/>
+        
         <Route path="/home" component={MyHome}></Route>
         <Route path="/login" component={Login}></Route>
         <Route path="/forgot" component={Forgot}></Route>
