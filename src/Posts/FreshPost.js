@@ -49,7 +49,7 @@ const FreshPost = ()=>{
         ()=>{
             if(val==undefined){
                 if(freshData!=undefined){
-                    console.log(freshData);
+                
                     freshData.map(
                         (e)=>{
                             rows.push(

@@ -46,7 +46,7 @@ const HotPost = ()=>{
         ()=>{
             if(val==undefined){
                 if(hotData!=undefined){
-                    console.log(hotData);
+         
                     hotData.map(
                         (e)=>{
                             rows.push(
