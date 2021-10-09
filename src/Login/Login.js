@@ -8,7 +8,7 @@ import Console from "../Console/console";
 import { DataContext } from "../datacontext";
 import axios from "axios";
 const Login =()=>{
-    
+    const{setLoggedUser}=useContext(DataContext);
     const [data,setData]=useState(false);
     const{setLogged}=useContext(DataContext);
     const{isLogged}=useContext(DataContext);
@@ -21,14 +21,24 @@ const Login =()=>{
         history.push("/console");
       
         }
-    const signSubmit = async(e)=>{
-      axios.get("http://localhost:8080/get?user="+e.user+"&password="+e.password).then((response)=>{
-         if(response.data.cutefish==true){
-            setLogged(true);
-            Login();
+    const signSubmit = (e)=>{
+      
+        const reqOptions = {
+            method: 'POST',
+            body: JSON.stringify(e),
+            headers: { 'Content-Type': 'application/json' }
         }
-     });
-    
+        fetch("https://react-rest-spring.herokuapp.com" + '/mlogin', reqOptions)
+            .then(res => res.json() )
+            .then( 
+                data=>
+                {setLogged(data)
+                setLoggedUser(e.user);
+                history.push('/home')}
+            )
+            .catch(err => {
+             
+            })
        
     }
     const login=()=>{

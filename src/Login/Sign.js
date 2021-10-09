@@ -1,4 +1,4 @@
-import { Autocomplete, Button, Container, Divider, Grid, Paper, TextField, Toolbar, Typography } from "@mui/material";
+import { Alert, Autocomplete, Button, Container, Divider, Grid, Paper, TextField, Toolbar, Typography } from "@mui/material";
 import { Formik } from "formik";
 import { useState } from "react";
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
@@ -10,19 +10,31 @@ const top100Films = [
     {label:"Which is your favourite movie?"},
     {label:"Which is your favourite holiday destination?"},
   ];
+
 const Sign =()=>{
-    
+    const [update,setUpdate]=useState(<div></div>)
 
     
     const signform={
         user : '',
         password:'',
-        confirm:'',
-        dob:'',
-        answer:''
+        date:''
     }
     const signSubmit = (e)=>{
-        console.log(e);
+
+        const reqOptions = {
+            method: 'POST',
+            body: JSON.stringify(e),
+            headers: { 'Content-Type': 'application/json' }
+        }
+        fetch("https://react-rest-spring.herokuapp.com" + '/mregister', reqOptions)
+            .then(res => res.json() )
+            .then( 
+                setUpdate(<Alert severity="success" className="ms-4">Posted!</Alert>)
+            )
+            .catch(err => {
+             
+            })
     }
     const login=()=>{
         return (
@@ -52,14 +64,14 @@ const Sign =()=>{
                   label="confirm"
                   type="password"
                   fullWidth
-                  onChange={handleChange} value={values.confirm}
+
                 
                   style={{width:"80%"}}
                  /><br/>
                 <TextField
                 className="mt-4"
-                id="dob"
-                onChange={handleChange} value={values.dob}
+                id="date"
+                onChange={handleChange} value={values.date}
                 variant="standard"
                 label="Birthday"
                 type="date"
@@ -69,29 +81,7 @@ const Sign =()=>{
                 shrink: true,
                 }}
                 />
-                 <center>
-                <Autocomplete
-                    className="mt-4"
-                    disablePortal
-                    className="ms-3 mt-3"
-                    id="question"
-                    onChange={handleChange}
-                    options={top100Films}
-                    sx={{ width: "80%" }}
-                    renderInput={(params) => <TextField {...params} label="Choose secret question"  variant="standard"/>}
-                />
-                </center>
-                <TextField 
-                  className="mt-2 ms-3"
-                  variant="standard"
-                  id="answer"
-                  label="Answer"
-                  type="text"
-                  fullWidth
-                  onChange={handleChange} value={values.answer}
-                 
-                  style={{width:"80%"}}
-                 /><br/>
+                <br/>
                  <Button variant="contained" className="mt-3" type="submit">
                      Sign up
                  </Button>
@@ -112,7 +102,7 @@ const Sign =()=>{
         
         {content}
         <Divider style={{width:"0%"}} className="mb-5"/>
-      
+        {update}
         </Paper>
         
         

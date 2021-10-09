@@ -1,4 +1,4 @@
-import {  createTheme, ThemeProvider } from '@mui/material';
+import {  AppBar, createTheme, ThemeProvider } from '@mui/material';
 import './App.css';
 import { BrowserRouter as Routers, Route } from "react-router-dom";
 
@@ -36,8 +36,9 @@ function App() {
     
     <ThemeProvider  theme={darkTheme}>  
     <SnackbarProvider>
-        <Routers>
         
+        <Routers>
+        <ButtonAppBar/>
         <Route path="/home" component={MyHome}></Route>
         <Route path="/login" component={Login}></Route>
         <Route path="/forgot" component={Forgot}></Route>

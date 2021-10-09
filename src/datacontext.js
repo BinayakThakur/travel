@@ -17,7 +17,7 @@ export const DataProvider = props =>{
 
    const[myComments,setComments]=useState("Select post to see the comments");
 
-
+    const[loggedUser,setLoggedUser]=useState("");
 
 
 
@@ -26,7 +26,7 @@ export const DataProvider = props =>{
     const[myChanges,setChanges]=useState([]);
     const[row,setRows]=useState([]);
     const[list,setList]=useState(0);
-    const[isLogged,setLogged]=useState(true);
+    const[isLogged,setLogged]=useState(false);
     const[ID,setID]=useState("XXXX");
    
     const[heading,setHeading]=useState("");
@@ -34,7 +34,7 @@ export const DataProvider = props =>{
     return (
         <DataContext.Provider value={{
             
-            hotData,setHot,freshData,setFresh,myComments,setComments,
+            hotData,setHot,freshData,setFresh,myComments,setComments,loggedUser,setLoggedUser,
             ID,setID,isLogged,setLogged,list,setList,row,setRows,myChanges,setChanges,setFinal,finChanges,revChange,setRev,heading,setHeading}}>
             {props.children}
         </DataContext.Provider>
