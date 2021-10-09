@@ -65,9 +65,7 @@ const Login =()=>{
                  <Button variant="contained" className="mt-3" type="submit">
                      Login
                  </Button>
-                 <Link to="/forgot"><Button  variant="contained" className="mt-3 ms-2" type="button">
-                     Forgot password
-                 </Button></Link>
+                 
                  
                  </form>
     

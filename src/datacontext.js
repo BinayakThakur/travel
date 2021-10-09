@@ -17,7 +17,7 @@ export const DataProvider = props =>{
 
    const[myComments,setComments]=useState("Select post to see the comments");
 
-    const[loggedUser,setLoggedUser]=useState("");
+    const[loggedUser,setLoggedUser]=useState("User");
 
 
 
@@ -26,7 +26,7 @@ export const DataProvider = props =>{
     const[myChanges,setChanges]=useState([]);
     const[row,setRows]=useState([]);
     const[list,setList]=useState(0);
-    const[isLogged,setLogged]=useState(false);
+    const[isLogged,setLogged]=useState(true);
     const[ID,setID]=useState("XXXX");
    
     const[heading,setHeading]=useState("");
