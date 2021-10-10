@@ -15,8 +15,9 @@ const Send = () =>{
         setBody(e);
     }
     const {loggedUser}=useContext(DataContext);
+    const author=loggedUser+"";
     function send(){
-        fetch("https://react-rest-spring.herokuapp.com/post?place="+Heading+"&author="+{loggedUser}+"&comments="+Body+"&time="+(new Date().toLocaleString()))
+        fetch("https://react-rest-spring.herokuapp.com/post?place="+Heading+"&author="+author+"&comments="+Body+"&time="+(new Date().toLocaleString()))
         .then(setFeed(
 
             <Alert severity="success" className="ms-4">Posted!</Alert>
