@@ -17,16 +17,21 @@ const darkTheme = createTheme({
   palette: {
     type: 'dark',
     primary: {
-      main: '#000000',
+      main: '#00897b',
+    
     },
     secondary: {
-      main: '#2ec5d3',
+      main: '#f50057',
+      dark: '#ccff90',
     },
     background: {
-      default: '#f4f8fd',
-      paper: 'cadetblue',
+      default: '#ff4081',
+      paper: '#6e2381',
     },
-  },}
+    divider: 'rgba(245,245,245,0.12)',
+  },
+  
+}
 );
 function App() {
   return (
