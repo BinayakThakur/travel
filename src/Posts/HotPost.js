@@ -52,7 +52,7 @@ const HotPost = ()=>{
                             rows.push(
                                 <div>
                                 <Paper  style={{background:"whitesmoke"}} className="gradient-background mt-4" elevation={7}>
-                                    <Toolbar><Typography Typography variant="h5" style={{fontFamily:"Hind Siliguri"}}>{e.place}</Typography></Toolbar>
+                                    <Toolbar><Typography Typography variant="h5" style={{fontFamily:"Hind Siliguri"}}>{e.place} by {e.author}</Typography></Toolbar>
                                     <Divider/>
                                     <Typography  style={{fontFamily:"Hind Siliguri"}} className="mt-4 mb-4">{e.comments}</Typography>   
                                     <Divider/>

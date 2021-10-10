@@ -44,6 +44,7 @@ const FreshPost = ()=>{
         }))
         .catch((err)=>console.log(err))
     }
+ 
     useEffect(
 
         ()=>{
@@ -55,7 +56,7 @@ const FreshPost = ()=>{
                             rows.push(
                                 <div>
                                 <Paper style={{background:"whitesmoke"}} className="mt-4" elevation={7}>
-                                    <Toolbar><Typography variant="h5" style={{fontFamily:"Hind Siliguri"}}>{e.place}</Typography></Toolbar>
+                                    <Toolbar><Typography variant="h5" style={{fontFamily:"Hind Siliguri"}}>{e.place} by {e.author}</Typography></Toolbar>
                                     <Divider/>
                                     <Typography style={{fontFamily:"Hind Siliguri"}} className="mt-4 mb-4">{e.comments}</Typography>   
                                     <Divider/>
