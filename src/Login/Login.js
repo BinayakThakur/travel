@@ -7,6 +7,7 @@ import Things from "../components/Things";
 import Console from "../Console/console";
 import { DataContext } from "../datacontext";
 import axios from "axios";
+
 const Login =()=>{
     const{setLoggedUser}=useContext(DataContext);
     const [data,setData]=useState(false);
@@ -33,11 +34,18 @@ const Login =()=>{
             .then( 
                 data=>
                 {setLogged(data)
-                setLoggedUser(e.user);
+                setLoggedUser(e.user); 
+                enqueueSnackbar('Success',{
+                    variant:"success",
+                    autoHideDuration: 1500,
+                })
                 history.push('/home')}
             )
             .catch(err => {
-             
+                enqueueSnackbar('Error',{
+                    variant:"error",
+                    autoHideDuration: 1500,
+                })
             })
        
     }
