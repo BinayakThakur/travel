@@ -5,6 +5,16 @@ import Search from "./SearchBar";
 
 
 const MyHome =()=>{
+  
+    const{setLogged}=useContext(DataContext);
+    const{setLoggedUser}=useContext(DataContext);
+    const checkLogin=()=>{
+      const mydata=sessionStorage.getItem("user");
+
+     
+      setLogged(mydata);
+    }
+    checkLogin();
     const [mydata,setData] = useState(<Typography variant="subtitle1" color="InfoText">Dynomix</Typography>)
     const{isLogged}=useContext(DataContext);
     useEffect(() => {

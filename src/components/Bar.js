@@ -16,6 +16,8 @@ import {useHistory} from 'react-router-dom';
 
 
 export default function ButtonAppBar() {
+ 
+  const{setLogged}=useContext(DataContext);
   let history=useHistory();
   const menu= ()=>{
     return (<>
@@ -24,9 +26,10 @@ export default function ButtonAppBar() {
     </>)
   }
     const{isLogged}=useContext(DataContext);
-    const{setLogged}=useContext(DataContext);
+    
     const[barMenu,setBarMenu]=React.useState(menu());
     const Logout=()=>{
+      sessionStorage.removeItem("user", false);
       setLogged(false)
     }
     useEffect(() => {

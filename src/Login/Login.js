@@ -14,6 +14,7 @@ const Login =()=>{
     const [data,setData]=useState(false);
     const{setLogged}=useContext(DataContext);
     const{isLogged}=useContext(DataContext);
+    const{loggedUser}=useContext(DataContext);
     const signform={
         user : '',
         password:''
@@ -42,7 +43,11 @@ const Login =()=>{
                         variant:"success",
                         autoHideDuration: 1500,
                     })
+                    sessionStorage.setItem("user", data);
+                    sessionStorage.setItem("myuser",loggedUser);
                     history.push('/home');
+                  
+                    
                  }
                  else{
                     enqueueSnackbar('ID or password is wrong',{
@@ -50,9 +55,9 @@ const Login =()=>{
                         autoHideDuration: 1500,
                     })
                  }
-
+                 
                 
-                }
+                }  
             )
             .catch(err => {
                 enqueueSnackbar('Error',{
