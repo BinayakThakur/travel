@@ -6,6 +6,7 @@ import {Link,useHistory} from 'react-router-dom';
 import Things from "../components/Things";
 import Console from "../Console/console";
 import { DataContext } from "../datacontext";
+import { useSnackbar } from 'notistack';
 import axios from "axios";
 
 const Login =()=>{
@@ -22,6 +23,7 @@ const Login =()=>{
         history.push("/console");
       
         }
+    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
     const signSubmit = (e)=>{
       
         const reqOptions = {
@@ -34,12 +36,23 @@ const Login =()=>{
             .then( 
                 data=>
                 {setLogged(data)
-                setLoggedUser(e.user); 
-                enqueueSnackbar('Success',{
-                    variant:"success",
-                    autoHideDuration: 1500,
-                })
-                history.push('/home')}
+                 setLoggedUser(e.user); 
+                 if(data){
+                    enqueueSnackbar('Logged in',{
+                        variant:"success",
+                        autoHideDuration: 1500,
+                    })
+                    history.push('/home');
+                 }
+                 else{
+                    enqueueSnackbar('ID or password is wrong',{
+                        variant:"error",
+                        autoHideDuration: 1500,
+                    })
+                 }
+
+                
+                }
             )
             .catch(err => {
                 enqueueSnackbar('Error',{
