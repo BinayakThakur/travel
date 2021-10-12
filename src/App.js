@@ -43,12 +43,14 @@ function App() {
     <SnackbarProvider>
         
         <Routers>
+
         <ButtonAppBar/>
         <Route path="/home" component={MyHome}></Route>
         <Route path="/login" component={Login}></Route>
         <Route path="/forgot" component={Forgot}></Route>
         <Route path="/sign" component={Sign}></Route>
         <Route path="/console" component={Console}></Route>
+        
         </Routers>
         </SnackbarProvider>
     </ThemeProvider>
