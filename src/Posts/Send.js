@@ -1,4 +1,4 @@
-import { Button, TextField, Toolbar, Typography } from "@mui/material";
+import { Button, TextField, Toolbar, Typography,Card } from "@mui/material";
 import { useContext, useState } from "react";
 import { DataContext } from "../datacontext";
 import MyPost from "./MyPost";
@@ -37,6 +37,7 @@ const Send = () =>{
             <Button variant="outlined" onClick={send}>send</Button >  <Button variant="outlined" className="ms-3" >save</Button>{feed}
         </Toolbar>
         <MyPost></MyPost>
+        
     </>)
 }
 export default Send;

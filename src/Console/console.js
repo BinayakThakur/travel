@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import { Card, Container } from '@mui/material';
 import { useContext, useEffect } from 'react';
 import {Link,useHistory} from 'react-router-dom';
 import { DataContext } from '../datacontext';
@@ -10,7 +10,12 @@ const Console = ()=>{
     const{isLogged}=useContext(DataContext);
     const access=()=>{
         if(isLogged){
-            return(<></>
+            return(<>
+            
+     
+            
+            
+            </>
             )
         }else{
             history.push("/home");
@@ -18,9 +23,9 @@ const Console = ()=>{
     }
     
  return(<>
- <Container>
+ 
  <Screen></Screen>  
- </Container>
+ 
  
  
  </>)
