@@ -28,7 +28,7 @@ const FreshPost = ()=>{
     var rows=[]
     
     function setLike(e){
-        fetch("https://react-rest-spring.herokuapp.com/like?postID="+e)
+        fetch("https://iforum-backend.herokuapp.com/like?postID="+e)
         .then( enqueueSnackbar('Liked',{
             variant:"success",
             autoHideDuration: 1500,
@@ -37,7 +37,7 @@ const FreshPost = ()=>{
        
     }
     function setDis(e){
-        fetch("https://react-rest-spring.herokuapp.com/dislike?postID="+e)
+        fetch("https://iforum-backend.herokuapp.com/dislike?postID="+e)
         .then( enqueueSnackbar('Disliked',{
             variant:"error",
             autoHideDuration: 1500,

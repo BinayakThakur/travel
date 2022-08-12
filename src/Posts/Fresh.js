@@ -8,7 +8,7 @@ const Fresh = () =>{
     const {setFresh}=useContext(DataContext);
     useEffect(
         ()=>{
-         fetch("https://react-rest-spring.herokuapp.com/getPack")
+         fetch("https://iforum-backend.herokuapp.com/getPack")
         .then(response => response.json())
         .then(data => setFresh(data))
         .catch((err)=>console.log(err))

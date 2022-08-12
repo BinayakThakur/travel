@@ -10,7 +10,7 @@ const Hot = () =>{
 
     useEffect(
         ()=>{
-         fetch("https://react-rest-spring.herokuapp.com/getPackRefresh")
+         fetch("https://iforum-backend.herokuapp.com/getPackRefresh")
         .then(response => response.json())
         .then(data => setHot(data))
         .catch((err)=>console.log(err));

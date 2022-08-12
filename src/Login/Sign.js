@@ -27,7 +27,7 @@ const Sign =()=>{
             body: JSON.stringify(e),
             headers: { 'Content-Type': 'application/json' }
         }
-        fetch("https://react-rest-spring.herokuapp.com" + '/mregister', reqOptions)
+        fetch("https://iforum-backend.herokuapp.com/" + '/mregister', reqOptions)
             .then(res => res.json() )
             .then( 
                 setUpdate(<Alert severity="success" className="ms-4">Posted!</Alert>)
