@@ -13,25 +13,25 @@ import MyHome from './components/myHome';
 import Console from './Console/console';
 
 
-const darkTheme = createTheme({
-  palette: {
-    type: 'dark',
-    primary: {
-      main: '#00897b',
-    
-    },
-    secondary: {
-      main: '#f50057',
-      dark: '#ccff90',
-    },
-    background: {
-      default: '#ff4081',
-      paper: '#6e2381',
-    },
-    divider: 'rgba(245,245,245,0.12)',
-  },
+const darkTheme = createTheme(
   
-}
+  {
+    palette: {
+      type: 'dark',
+      primary: {
+        main: '#000000',
+      },
+      secondary: {
+        main: '#f48fb1',
+      },
+      background: {
+        default: '#212121',
+        paper: '#424242',
+      },
+    },
+  }
+
+
 );
 function App() {
   return (
