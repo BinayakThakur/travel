@@ -15,7 +15,7 @@ const MyHome =()=>{
       setLogged(mydata);
     }
     checkLogin();
-    const [mydata,setData] = useState(<Typography variant="subtitle1" color="InfoText">Dynomix</Typography>)
+    const [mydata,setData] = useState(<Typography variant="subtitle1" color="InfoText">Interview Questions</Typography>)
     const{isLogged}=useContext(DataContext);
     useEffect(() => {
         if(isLogged){setData(<></>);}

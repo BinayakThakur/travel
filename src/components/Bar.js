@@ -77,7 +77,7 @@ export default function ButtonAppBar() {
             sx={{ mr: 2 }}
           > 
            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Dynomix
+           Interview Questions
             </Typography>
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
